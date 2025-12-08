@@ -9,13 +9,17 @@ scroll-padding-top: 2rem;
 scroll-behavior: smooth;
 }
 :root{
-    --main-color:#ff2c1f;
+    --main-color:#4100b1;
     --text-color: #020307;
     --bg-color: #fff;
     }
+
     body{
         background: var(--text-color);
         color: var(--bg-color);
+    }
+    section{
+        padding: 4.5rem 0 1.5rem;
     }
     header{
         background: var(--text-color);
@@ -73,4 +77,22 @@ scroll-behavior: smooth;
     .navbar a:hover::after , 
     .navbar .home-active::after{
         width: 100%;
+    }
+    #menu-icon{
+        font-size: 24px;
+        cursor: pointer;
+        z-index: 1000001;
+        display: none;
+
+    }
+    .btn{
+        padding: 0.7rem 1.4rem;
+        background: var(--main-color);
+        color: var(--bg-color);
+        font-weight: 400;
+        border-radius: 0.5rem;
+        
+    }
+    .btn:hover{
+        background:#5007cf;
     }
