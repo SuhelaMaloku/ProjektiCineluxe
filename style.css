@@ -46,3 +46,8 @@ scroll-behavior: smooth;
         font-size: 24px;
         color: var(--main-color);
     }
+    .navbar {
+        display: flex;
+        column-gap: 5rem;
+        
+    }
