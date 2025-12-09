@@ -1,4 +1,4 @@
-   var swiper = new Swiper(".home", {
+    var swiper = new Swiper(".home", {
       spaceBetween: 30,
       centeredSlides: true,
       autoplay: {
@@ -9,5 +9,8 @@
         el: ".swiper-pagination",
         clickable: true,
       },
-     
+      pagination:{
+        el: ".swiper-pagination",
+        clickable: true,
+      },
     });
