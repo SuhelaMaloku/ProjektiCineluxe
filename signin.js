@@ -21,6 +21,6 @@ if(registerForm){
         if(!username || !email || !password || !confirm) return alert('Please fill in all fields.');
         if(password !== confirm) return alert('Passwords do not match.');
         alert('Registration successful!');
-        window.location.href = 'Login.html';
+        window.location.href = 'loginform.html';
     });
 }
