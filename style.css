@@ -348,6 +348,12 @@ scroll-behavior: smooth;
     .back-home{
         display: block;
         margin-top: 15px;
+        color: var(--bg-color);
+        font-size: 0.9rem;
+        text-decoration: underline;
+    }
+    .back-home:hover{
+        color: var(--main-color);
     }
 
 
