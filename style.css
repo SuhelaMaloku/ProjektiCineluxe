@@ -268,4 +268,37 @@ scroll-behavior: smooth;
     .box span{
     font-size: 13px;
     }
+    .about{
+        max-width: 900px;
+        margin: 80px auto;
+        padding: 40px 30px;
+        background: rgba(255, 255, 255, 0.08);
+        border-radius: 20px;
+        backdrop-filter: blur(8px);
+        border: 1px solid rgba(255, 255,255,0.15);
+        text-align: center;
+    }
+    .about h2{
+        font-size: 2rem;
+        margin-bottom: 20px;
+        text-transform: uppercase;
+        color: var(--main-color);
+    }
+    .about p{
+        font-size: 1rem;
+        line-height: 1.7;
+        color: #f0f0f0;
+        margin-bottom: 15px;
+    }
+    .about span{
+        color: var(--bg-color);
+        font-weight: 600;
+
+    }
+    .about .signature{
+        margin-top: 20px;
+        font-style: italic;
+        opacity: 0.8;
+    }
+
 
