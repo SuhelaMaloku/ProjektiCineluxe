@@ -42,7 +42,7 @@ scroll-behavior: smooth;
 }
 
     .logo{
-        font-size: 1.1rem;
+        font-size: 1.6rem;
         font-weight:600;
         color:var(--bg-color);
         display: flex;
@@ -175,7 +175,7 @@ scroll-behavior: smooth;
         font-weight: 500;
         text-transform: uppercase;
         border-bottom: 1px solid var(--main-color);
-        
+
     }
     .movies-container{
         max-width: 968px;
@@ -207,3 +207,23 @@ scroll-behavior: smooth;
     .box span{
         font-size: 13px;;
     }
+    body {
+    margin: 0;
+    padding: 0;
+    position: relative;
+    min-height: 100vh;
+    font-family: "Poppins", sans-serif;
+}
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    
+    background: url("46b97cc2ae7925034810e28a2c718121f8-inside-out-02.rhorizontal.w700.webp") no-repeat center center/cover;
+    
+    filter: blur(7px);     
+    z-index: -1;            
+}
