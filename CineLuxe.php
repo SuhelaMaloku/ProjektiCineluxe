@@ -10,26 +10,37 @@
 
 </head>
 <body>
-    <header>
-        <a href="#" class="logo">
-            <i class='bx  bx-movie'></i> CineLuxe
-        </a>
-        <div class="bx bx-menu" id="menu-icon"></div>
-        <ul class="navbar">
-            <li><a href="#home" class="home-active">Home</a></li>
-            <li><a href="#movies">Movie</a></li>
-            <li><a href="#Popular">Popular</a></li>
+<header>
+    <a href="CineLuxe.html" class="logo">
+        <i class='bx bx-movie'></i> CineLuxe
+    </a>
+
+    <div class="bx bx-menu" id="menu-icon"></div>
+
+    <ul class="navbar">
+        <li><a href="Cineluxe.php#home">Home</a></li>
+        <li><a href="Cineluxe.php#popular">Popular</a></li>
+        <li><a href="movies.html" class="home-active">Movie</a></li>
+        <li class="genre-dropdown">
+        <a href="#Genre">Genre <i class='bx bx-chevron-down'></i></a>
+        <ul class="genre-menu">
+            <li><a href="movies.php#Animation">Animation</a></li>
+            <li><a href="movies.php#Adventure">Adventure</a></li>
+            <li><a href="movies.php#Comedy">Comedy</a></li>
+            <li><a href="movies.php#Fantasy">Fantasy</a></li>
+            <li><a href="movies.php#Action">Action</a></li>
         </ul>
-        <div class="search-box">
-    <input type="text" placeholder="Search movies..." />
-    <i class='bx bx-search'></i>
-</div>
+        </li>
+        <li><a href="about.php">About us</a></li>
+    </ul>
 
-        <a href="loginform.html" class="btn">Sign In</a>
+    <div class="search-box">
+        <input type="text" placeholder="Search movies..." />
+        <i class='bx bx-search'></i>
+    </div>
 
-        
-
-    </header>
+    <a href="loginform.php" class="btn">Sign In</a>
+</header>
    <section class="home swiper" id="home">
 
     <div class="swiper-wrapper">
