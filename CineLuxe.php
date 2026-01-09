@@ -282,20 +282,36 @@
     </div>
     </div>
 </section>
-<section class="about" id="about">
-    <div class="about-container">
-        <h2>About Us</h2>
-        <p>
-            At <span>CineLuxe</span>, we bring the magic of movies to life.
-            Our mission is to offer users a beautiful, fast , and immersive movie browsing experience.
-            From animated classics to the latest blockbusters,we aim to provide a platform where
-            everyone can discover their next favorite film.
-        </p>
-        <p class="signature"> The Cineluxe Team :* </p> 
+<footer>
+    <div class="footer-container">
+        <div class="footer-about">
+            <h3>CineLuxe</h3>
+            <p>Your favorite movie platform. Discover, watch, and share movies with friends!</p>
+        </div>
 
+        <div class="footer-social">
+            <h4>Follow Us</h4>
+            <div class="social-icons">
+                <a href="#"><i class='bx bxl-facebook'></i></a>
+                <a href="#"><i class='bx bxl-instagram'></i></a>
+                <a href="#"><i class='bx bxl-twitter'></i></a>
+                <a href="#"><i class='bx bxl-tiktok'></i></a>
+                <a href="#"><i class='bx bxl-pinterest'></i></a>
+            </div>
+        </div>
+
+        <div class="footer-newsletter">
+            <h4>Stay Updated</h4>
+            <p>Subscribe to our newsletter for the latest movies and reviews!</p>
+            <input type="email" placeholder="Your email" />
+            <button>Subscribe</button>
+        </div>
     </div>
 
-</section>
+    <div class="footer-copy">
+        <p>© 1990-2025 CineLuxe.com, Inc. All rights reserved.</p>
+    </div>
+</footer>
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 <script src="main.js"></script>
