@@ -11,7 +11,7 @@
 <body>
 
 <header>
-    <a href="CineLuxe.html" class="logo">
+    <a href="CineLuxe.php" class="logo">
         <i class='bx bx-movie'></i> CineLuxe
     </a>
 
@@ -20,7 +20,7 @@
     <ul class="navbar">
         <li><a href="Cineluxe.php#home">Home</a></li>
         <li><a href="Cineluxe.php#popular">Popular</a></li>
-        <li><a href="movies.html" class="home-active">Movie</a></li>
+        <li><a href="movies.php" class="home-active">Movie</a></li>
         <li class="genre-dropdown">
         <a href="#Genre">Genre <i class='bx bx-chevron-down'></i></a>
         <ul class="genre-menu">
