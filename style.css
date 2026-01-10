@@ -473,5 +473,237 @@ body {
 .genre-dropdown:hover .genre-menu {
     display: block;
 }
+.review-title {
+    margin-top: 40px;
+    font-size: 1.4rem;
+    color: var(--bg-color);
+    text-transform: uppercase;
+    box-shadow: 0 0 100px rgba(72, 23, 219, 0.5);
+}
+html {
+    scroll-behavior: smooth;
+}
+
+section {
+    scroll-margin-top: 90px; 
+}
+
+.review-box {
+    max-width: 520px;
+    margin: 30px auto;
+    background: rgba(0, 0, 0, 0.311); 
+    padding: 20px;
+    border-radius: 20px;
+    backdrop-filter: blur(8rem); 
+    text-align: center;
+}
+
+.review-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 15px;
+}
+
+.review-header img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.review-header input {
+    flex: 1;
+    padding: 10px;
+    border-radius: 12px;
+    border: none;
+    outline: none;
+    background: rgba(255, 255, 255, 0.164);
+    color: white;
+}
+
+.review-box textarea {
+    width: 100%;
+    height: 90px;
+    padding: 12px;
+    border-radius: 14px;
+    border: none;
+    resize: none;
+    background: rgba(255, 255, 255, 0.164);
+    color: rgb(255, 255, 255);
+    margin-bottom: 15px;
+}
+
+.review-box button {
+    padding: 8px 20px;
+    border-radius: 20px;
+    border: none;
+    cursor: pointer;
+    background: var(--main-color);
+    color: white;
+    font-weight: 600;
+}
+
+.review-box button:hover {
+    opacity: 0.85;
+}
+.review-header input::placeholder,
+.review-box textarea::placeholder {
+    color: #cccccc91; 
+    font-size: 0.9rem;
+    font-style: italic; 
+    font-weight: 500;
+}
+.review-header input,
+.review-box textarea {
+    color: white;
+}
+
+.review-card {
+    max-width: 520px;
+    margin: 15px auto;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    background: rgba(0, 0, 0, 0.247);
+    padding: 15px;
+    border-radius: 15px;
+    text-align: left;
+    color: white;
+}
+
+.review-card img {
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.review-card h4 {
+    margin-bottom: 5px;
+    font-size: 1rem;
+}
+footer {
+    background: rgba(0, 0, 0, 0.242);
+    backdrop-filter: blur(6px);
+    color: white;
+    padding: 40px 20px 20px 20px;
+    text-align: center;
+    margin-top: 50px;
+    border-top: 1px solid rgba(255,255,255,0.2);
+}
+.footer-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto 20px auto;
+    text-align: left;
+}
+.footer-about h3,
+.footer-social h4,
+.footer-newsletter h4 {
+    margin-bottom: 20px;
+    color: var(--main-color);
+    text-transform: uppercase;
+}
+.footer-about p,
+.footer-newsletter p {
+    font-size: 1rem;
+    line-height: 1.5;
+    max-width: 300px;
+}
+.footer-newsletter input {
+    padding: 10px;
+    border-radius: 8px;
+    border: none;
+    margin-top: 10px;
+    width: 70%;
+    max-width: 200px;
+}
+.footer-newsletter button {
+    padding: 10px 15px;
+    border-radius: 8px;
+    border: none;
+    background: var(--main-color);
+    color: white;
+    margin-left: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.footer-newsletter button:hover {
+    background: #6d1ee4;
+}
+.social-icons a {
+    color: white;
+    font-size: 2rem;
+    margin: 0 8px;
+    transition: 0.3s;
+}
+.social-icons a:hover {
+    color: var(--main-color);
+}
+.footer-copy p {
+    font-size: 0.8rem;
+    opacity: 0.7;
+    margin-top: 15px;
+}
+@media (max-width: 768px) {
+    .footer-container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .footer-newsletter input {
+        width: 80%;
+        margin-bottom: 0px;
+    }
+
+    .footer-newsletter button {
+        margin-left: 0;
+    }
+}
+.pagination {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin: 40px 0;
+}
+.pagination a {
+    padding: 8px 14px;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    text-decoration: none;
+    transition: 0.3s;
+}
+.pagination a:hover {
+    background: var(--main-color);
+}
+
+.pagination a.active {
+    background: var(--main-color);
+    font-weight: bold;
+}
+.load-more-container {
+    display: flex;
+    justify-content: center;
+    margin: 40px 0;
+}
+.load-more-btn {
+    padding: 10px 15px;
+    font-size: 1rem;
+    border-radius: 12px;
+    border: none;
+    background: var(--main-color);
+    color: white;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.load-more-btn:hover {
+    background: #782fe7;
+}
 
 
