@@ -1,3 +1,4 @@
+<?php include 'header.php';?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,37 +11,7 @@
 </head>
 <body>
 
-<header>
-    <a href="CineLuxe.php" class="logo">
-        <i class='bx bx-movie'></i> CineLuxe
-    </a>
 
-    <div class="bx bx-menu" id="menu-icon"></div>
-
-    <ul class="navbar">
-        <li><a href="Cineluxe.php#home">Home</a></li>
-        <li><a href="Cineluxe.php#popular">Popular</a></li>
-        <li><a href="movies.php" class="home-active">Movie</a></li>
-        <li class="genre-dropdown">
-        <a href="#Genre">Genre <i class='bx bx-chevron-down'></i></a>
-        <ul class="genre-menu">
-            <li><a href="movies.php#Animation">Animation</a></li>
-            <li><a href="movies.php#Adventure">Adventure</a></li>
-            <li><a href="movies.php#Comedy">Comedy</a></li>
-            <li><a href="movies.php#Fantasy">Fantasy</a></li>
-            <li><a href="movies.php#Action">Action</a></li>
-        </ul>
-        </li>
-        <li><a href="about.php">About us</a></li>
-    </ul>
-
-    <div class="search-box">
-        <input type="text" placeholder="Search movies..." />
-        <i class='bx bx-search'></i>
-    </div>
-
-    <a href="loginform.php" class="btn">Sign In</a>
-</header>
 
 <!-- ABOUT -->
 <section class="about">
