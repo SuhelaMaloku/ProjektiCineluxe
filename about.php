@@ -133,5 +133,6 @@
 
 
 <script src="main.js"></script>
+<script src="search.js"></script>
 </body>
 </html>
