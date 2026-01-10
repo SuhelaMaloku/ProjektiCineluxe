@@ -401,6 +401,6 @@
 </footer>
 
 
-
+<script src="search.js"></script>
 </body>
 </html>
