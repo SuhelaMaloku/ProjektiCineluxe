@@ -12,16 +12,16 @@
 </head>
 <body>
     
-   <section class="home swiper" id="home">
+     <section class="home swiper" id="home">
 
     <div class="swiper-wrapper">
 
         <div class="swiper-slide">
           <div class="container">
-            <img src="Madagascar (1)-Picsart-AiImageEnhancer.jpg" alt="">
+            <img src="download (35)-Picsart-AiImageEnhancer.jpg" alt="">
             <div class="home-text">
-                <span>2012 Animated</span>
-                <h1>Madagascar</h1>
+                <span>2022 Animated</span>
+                <h1>Turning Red</h1>
                 <a href="#" class="btn">Watch Now</a>
                 <a href="#" class="play"><i class="bx bx-play"></i></a>
             </div> 
@@ -30,10 +30,10 @@
 
         <div class="swiper-slide">
           <div class="container">
-            <img src="download (34)-Picsart-AiImageEnhancer.jpg" alt="">
+            <img src="lion 21.jpg" alt="">
             <div class="home-text">
-                <span>2017 Animated</span>
-                <h1>Cars</h1>
+                <span>2019 Adventure</span>
+                <h1>The Lion King</h1>
                 <a href="#" class="btn">Watch Now</a>
                 <a href="#" class="play"><i class="bx bx-play"></i></a>
             </div>
@@ -42,10 +42,10 @@
 
         <div class="swiper-slide">
           <div class="container">
-            <img src="download (35)-Picsart-AiImageEnhancer.jpg">
+            <img src="download (50).jpg">
             <div class="home-text">
-                <span>2022 Animated</span>
-                <h1>Turning Red</h1>
+                <span>2020 Action</span>
+                <h1>MULAN</h1>
                 <a href="#" class="btn">Watch Now</a>
                 <a href="#" class="play"><i class="bx bx-play"></i></a>
             </div>
@@ -58,7 +58,7 @@
     <div class="swiper-pagination"></div>
 
 </section>
-<section class="movies" id="movies">
+<section class="popular" id="popular">
     <h2 class="heading">Popular Ones</h2>
     <div class="movies-container">
          <div class="box">
@@ -118,7 +118,7 @@
 
      <div class="box">
         <div class="box-img">
-        <img src="Inside Out 2 Parents Guide + Movie Review.jpg" alt="">
+        <img src="insideout.jpg" alt="">
     </div>
     <h3>Inside Out</h3>
     <span>Animated</span>
@@ -150,10 +150,33 @@
     <h3>Dumbo</h3>
     <span>Animated</span>
     </div>
+    
+     <div class="box">
+        <div class="box-img">
+        <img src="download (39).jpg" alt="">
+    </div>
+    <h3>Life of Pi</h3>
+    <span>Animated</span>
+    </div>
+    <div class="box">
+        <div class="box-img">
+        <img src="Walt Disney's Tangled movie poster US $11_99.jpg" alt="">
+    </div>
+    <h3>Rapunzel</h3>
+    <span>Animated</span>
+    </div>
 
 
     </div>
 </section>
+<div class="pagination">
+    <a href="#" class="active">1</a>
+    <a href="#">2</a>
+    <a href="#">3</a>
+    <a href="#">4</a>
+    <a href="#">Next &raquo;</a>
+</div>
+
 <section class ="coming" id="coming">
     <h2 class="heading">Coming Soon</h2>
     <div class="coming-container swiper">
@@ -283,8 +306,8 @@
         <p>© 1990-2025 CineLuxe.com, Inc. All rights reserved.</p>
     </div>
 </footer>
-
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 <script src="main.js"></script>
+   
 </body>
 </html>
