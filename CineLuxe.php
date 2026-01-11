@@ -276,6 +276,22 @@
     </div>
     </div>
 </section>
+
+<div class="trailer-modal" id="trailer-modal">
+    <div class="trailer-content">
+        <span class="close-btn" id="close-trailer">&times;</span>
+
+        <div class="video-wrapper">
+            <iframe id="trailer-video" width="100%" height="500" frameborder="0" allowfullscreen></iframe>
+        </div>
+
+        <div class="trailer-info">
+            <h2 id="trailer-title"></h2>
+            <p id="trailer-desc"></p>
+        </div>
+    </div>
+</div>
+
 <footer>
     <div class="footer-container">
         <div class="footer-about">
