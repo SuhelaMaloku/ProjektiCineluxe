@@ -378,4 +378,16 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
   });
+  closeBtn.addEventListener("click", () => {
+    iframe.src = "";
+    trailerTitleEl.innerText = "";
+    trailerDescEl.innerText = "";
+    modal.style.display = "none";
+  });
+  window.openTrailer = function(videoUrl, title, desc) {
+    iframe.src = videoUrl;
+    trailerTitleEl.innerText = title;
+    trailerDescEl.innerText = desc;
+    modal.style.display = "flex";
+  };
 });
