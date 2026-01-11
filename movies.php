@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Movies - Cineluxe </title>
-    <link rel="stylesheet" href="style.css">    
+    <link rel="stylesheet" href="style.css?v=<?php echo time(); ?>">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
 
 </head>
@@ -416,5 +416,6 @@
 
 
 <script src="search.js"></script>
+<script src="trailers.js"></script>
 </body>
 </html>
