@@ -1,3 +1,22 @@
+<?php
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+
+include 'db_connection.php'; 
+$user_image = 'profil.jpg';
+
+if(isset($_SESSION['user_email'])){
+    $email = $_SESSION['user_email'];
+    $res = $conn->query("SELECT image FROM users WHERE email = '$email'");
+    if($res && $res->num_rows > 0){
+        $user_data = $res->fetch_assoc();
+        if(!empty($user_data['image'])){
+            $user_image = "uploads/" . $user_data['image'];
+        }
+    }
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
