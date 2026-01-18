@@ -15,7 +15,7 @@
             <li><a href="#" class="menu-link" data-section="watchlist">Watchlist</a></li>
             <li><a href="#" class="menu-link" data-section="history">History</a></li>
         </ul>
-        <a href="" class="logout-btn">Log Out</a>
+        <a href="logout.php" class="logout-btn">Log Out</a>
     </div>
 
     <div class="profile-right">
