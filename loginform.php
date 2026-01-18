@@ -1,4 +1,30 @@
-<?php session_start(); ?>
+<?php
+session_start();
+include 'db_connection.php';
+$error = "";
+if ($_SERVER["REQUEST_METHOD"] === "POST") {
+    $email = mysqli_real_escape_string($conn, $_POST['loginEmail']);
+    $password = $_POST['loginPassword'];
+    $query = "SELECT * FROM users WHERE email = '$email'";
+    $result = $conn->query($query);
+
+    if ($result->num_rows > 0) {
+        $user = $result->fetch_assoc();
+        if (password_verify($password, $user['password'])) {
+            $_SESSION['loggedin'] = true;
+            $_SESSION['user_name'] = $user['name'];
+            $_SESSION['user_email'] = $user['email'];
+
+            header("Location: Cineluxe.php");
+            exit;
+        } else {
+            $error = "Invalid email or password.";
+        }
+    } else {
+        $error = "Invalid email or password.";
+    }
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,8 +34,6 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
 </head>
 <body>
-
-
 <div class="login-container">
     <div class="login-box">
         <h2>Login to CineLuxe</h2>
@@ -31,7 +55,5 @@
         <p class="auth-link">Don't have an account? <a href="register.php">Register here</a></p>
     </div>
 </div>
-
-<script src="signin.js"></script>
 </body>
 </html>
