@@ -37,7 +37,20 @@
         </div>
         <div id="search-results-container"></div>
     </div>
+    <div class="user-dropdown">
+    <?php if(isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true): ?>
+        <a href="settings.php" class="user-toggle" style="display: flex; align-items: center; gap: 10px; text-decoration: none;">
+            <div class="user-avatar" style="width: 35px; height: 35px; border-radius: 50%; overflow: hidden; border: 2px solid #481379d5; display: flex; align-items: center; justify-content: center;">
+                <img src="<?php echo $user_image; ?>" alt="User" style="width: 100%; height: 100%; object-fit: cover;">
+            </div>
+            <span class="user-name" style="color: #fff; font-weight: 500;">
+                <?php echo htmlspecialchars($_SESSION['user_name'] ?? 'Guest'); ?>
+            </span>
+        </a>
+    <?php else: ?>
         <a href="loginform.php" class="btn">Sign In</a>
+    <?php endif; ?>
+</div>
 </header>
 </body>
 </html>
