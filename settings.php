@@ -129,5 +129,27 @@
 
     </div>
 </div>
+<script>
+const menuLinks = document.querySelectorAll('.menu-link');
+const sections = document.querySelectorAll('.content-section');
+
+menuLinks.forEach(link => {
+    link.addEventListener('click', e => {
+        e.preventDefault();
+
+        menuLinks.forEach(l => l.classList.remove('active'));
+        link.classList.add('active');
+
+        const target = link.dataset.section;
+        sections.forEach(sec => {
+            if(sec.id === target){
+                sec.classList.add('active');
+            } else {
+                sec.classList.remove('active');
+            }
+        });
+    });
+});
+</script>
 </body>
 </html>
