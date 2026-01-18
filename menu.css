@@ -1,0 +1,243 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    background: url("46b97cc2ae7925034810e28a2c718121f8-inside-out-02.rhorizontal.w700.webp") no-repeat center center/cover;
+    
+}
+
+.settings-container {
+    display: flex;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.profile-left {
+    width: 220px;
+    background: rgba(255, 255, 255, 0.375);
+    border-radius: 15px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.profile-left ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.profile-left ul li {
+    margin-bottom: 15px;
+}
+
+.profile-left ul li a {
+    display: block;
+    padding: 12px 15px;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 10px;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+.profile-left ul li a.active,
+.profile-left ul li a:hover {
+    background: #481379d5;
+    color: #fff;
+}
+
+.logout-btn {
+    padding: 12px;
+    border: none;
+    border-radius: 10px;
+    background: #481379d5;
+    color: #ffffff;
+    font-weight: 600;
+    cursor: pointer;
+    text-align: center;
+    transition: 0.3s;
+}
+
+.logout-btn:hover {
+    background: #481379d5;
+}
+
+.profile-right {
+    flex: 1;
+    margin-left: 30px;
+    padding: 30px;
+    background: rgba(255, 255, 255, 0.807);
+    border-radius: 15px;
+    backdrop-filter: blur(6px);
+    overflow-x: auto;
+}
+
+.content-section {
+    display: none;
+}
+
+.content-section.active {
+    display: block;
+}
+
+.profile-right h2 {
+    margin-bottom: 20px;
+    color: #481379d5;
+}
+
+.profile-picture img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 20px;
+    border: 4px solid #4817db;
+}
+
+.save-btn {
+    padding: 12px 25px;
+    border-radius: 12px;
+    border: none;
+    background: #481379d5;
+    color: #fff;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.save-btn:hover {
+    background: #481379d5;
+}
+
+.movies-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.movie-box {
+    background: rgba(255,255,255,0.05);
+    border-radius: 15px;
+    text-align: center;
+    overflow: hidden;
+}
+
+.movie-box img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    transition: 0.3s;
+}
+
+.movie-box img:hover {
+    transform: translateY(-10px);
+}
+
+.movie-box p {
+    padding: 10px 0;
+    font-size: 0.95rem;
+}
+
+.password-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-width: 400px;
+}
+
+.password-form .form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.password-form label {
+    margin-bottom: 8px;
+    font-weight: 500;
+    color:  #481379d5; 
+}
+
+.password-form input {
+    padding: 12px 15px;
+    border-radius: 12px;
+    border: 2px solid rgba(105, 91, 156, 0.351);
+    background: rgba(199, 190, 208, 0.089);
+    color: #ffffff;
+    font-size: 1rem;
+    transition: all 0.3s;
+}
+
+.password-form input::placeholder {
+    color: #ffffffee;
+}
+
+.password-form input:focus {
+    border-color:  #4817db;
+    outline: none;
+    box-shadow: 0 0 10px  #4817db;
+}
+
+.password-form .save-btn {
+    align-self: flex-start;
+    padding: 12px 25px;
+    border-radius: 12px;
+    border: none;
+    background:  #481379d5;
+    color: #ffffff;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.password-form .save-btn:hover {
+    background: #481379d5;
+}
+
+.movies-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.movie-box {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+    overflow: hidden;
+    text-align: center;
+    box-shadow: 0 0 40px rgba(72, 23, 219, 0.3);
+    transition: transform 0.3s, box-shadow 0.3s;
+    cursor: pointer;
+}
+
+.movie-box img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    transition: transform 0.3s;
+}
+
+.movie-box img:hover {
+    transform: scale(1.05);
+}
+
+.movie-box p {
+    padding: 10px 0;
+    font-size: 1rem;
+    font-weight: 500;
+    color: #481379d5;
+}
+
+.movie-box:hover {
+    box-shadow: 0 0 60px rgba(72, 23, 219, 0.6);
+    transform: translateY(-5px);
+}
+
+@media(max-width: 768px){
+    .movies-grid {
+        grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+        gap: 15px;
+    }
+}
