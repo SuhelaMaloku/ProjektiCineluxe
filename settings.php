@@ -1,3 +1,29 @@
+<?php
+session_start();
+include 'db_connection.php';
+
+if (!isset($_SESSION['user_email'])) {
+    header("Location: loginform.php");
+    exit();
+}
+
+$email = $_SESSION['user_email'];
+$res = $conn->query("SELECT * FROM users WHERE email = '$email'");
+$user_data = $res->fetch_assoc();
+
+$foto_aktuale = "profil.jpg"; 
+if (!empty($user_data['image'])) {
+    $foto_aktuale = "uploads/" . $user_data['image'];
+}
+?>
+
+    <script>
+        setTimeout(function() {
+            var alert = document.getElementById('status-alert');
+            if(alert) alert.style.display = 'none';
+        }, 3000);
+    </script>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -22,13 +48,12 @@
 <section id="profile" class="content-section active">
     <h2 style="color: #481379d5; margin-bottom: 20px;">Profile</h2>
     
-    <form action="" method="POST" enctype="multipart/form-data">
+    <form action="update_profile.php" method="POST" enctype="multipart/form-data">
         <div style="display: flex; flex-direction: column; align-items: flex-start; margin-bottom: 30px;">
             <div style="width: 120px !important; height: 120px !important; border-radius: 50% !important; overflow: hidden !important; border: 4px solid #481379d5 !important; background: #eee; display: flex; align-items: center; justify-content: center;">
                 <img src="<?php echo $foto_aktuale; ?>" id="userProfilePic" alt="Profile Picture" 
                      style="width: 100% !important; height: 100% !important; object-fit: cover !important;">
             </div>
-            
             <button type="button" onclick="triggerClick()" 
                     style="margin-top: 15px; background: #481379d5; color: white; border: none; padding: 8px 20px; border-radius: 8px; cursor: pointer; font-family: 'Poppins', sans-serif;">
                 Change Picture
@@ -67,7 +92,8 @@
 </section>
 <section id="password" class="content-section">
     <h2>Change Password</h2>
-    <form action="" method="POST" class="password-form">
+    
+    <form action="change_password.php" method="POST" class="password-form">
         <div class="form-group">
             <label for="current-password">Current Password</label>
             <input type="password" name="current_password" id="current-password" placeholder="Enter current password" required>
@@ -140,8 +166,11 @@
     </div>
 </section>
 
+
+
     </div>
 </div>
+
 <script>
 const menuLinks = document.querySelectorAll('.menu-link');
 const sections = document.querySelectorAll('.content-section');
@@ -152,7 +181,7 @@ menuLinks.forEach(link => {
 
         menuLinks.forEach(l => l.classList.remove('active'));
         link.classList.add('active');
-
+        
         const target = link.dataset.section;
         sections.forEach(sec => {
             if(sec.id === target){
@@ -164,5 +193,3 @@ menuLinks.forEach(link => {
     });
 });
 </script>
-</body>
-</html>
