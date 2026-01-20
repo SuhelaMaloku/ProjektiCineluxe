@@ -84,46 +84,59 @@
     </form>
 </section>
 
-
-<<section id="watchlist" class="content-section">
+<section id="watchlist" class="content-section">
     <h2>Your Watchlist</h2>
-
     <div class="movies-grid">
+        <?php
+        include 'db_connection.php';
+        $user_email = $_SESSION['user_email'];
+        $query = "SELECT * FROM watchlist WHERE user_email = '$user_email' ORDER BY added_at DESC";
+        $result = $conn->query($query);
 
-        <div class="movie-box">
-            <img src="Raya From Disney Movie.jpg" alt="Raya">
-            <p>Raya</p>
-        </div>
-
-        <div class="movie-box">
-            <img src="lion 21.jpg" alt="The Lion King">
-            <p>The Lion King</p>
-        </div>
-
-        <div class="movie-box">
-            <img src="insideout.jpg" alt="Inside Out">
-            <p>Inside Out</p>
-        </div>
-
+        if ($result->num_rows > 0) {
+            while($row = $result->fetch_assoc()) {
+                echo '<div class="movie-box">
+                        <img src="'.$row['movie_image'].'" alt="'.$row['movie_title'].'">
+                        <p>'.$row['movie_title'].'</p>
+                      </div>';
+            }
+        } else {
+            echo "<p>Your Watchlist is empty.</p>";
+        }
+        ?>
     </div>
 </section>
+
+
 <section id="history" class="content-section">
     <h2>Your Watched Movies</h2>
-
     <div class="movies-grid">
+        <?php
+        include 'db_connection.php'; 
+        
+        if (isset($_SESSION['user_email'])) {
+            $user_email = $_SESSION['user_email'];
+            
+            $query_h = "SELECT * FROM history WHERE user_email = '$user_email' ORDER BY watched_at DESC";
+            $result_h = $conn->query($query_h);
 
-        <div class="movie-box">
-            <img src="Sherek_.jpg" alt="Sherek">
-            <p>Sherek</p>
-            <span class="watched-date">Watched: 12 Jan 2026</span>
-        </div>
-
-        <div class="movie-box">
-            <img src="Toy Story 4.jpg" alt="Toy Story 4">
-            <p>Toy Story 4</p>
-            <span class="watched-date">Watched: 03 Dec 2025</span>
-        </div>
-
+            if ($result_h->num_rows > 0) {
+                while($row_h = $result_h->fetch_assoc()) {
+                    ?>
+                    <div class="movie-box">
+                        <img src="<?php echo $row_h['movie_image']; ?>" alt="<?php echo $row_h['movie_title']; ?>">
+                        <p><?php echo $row_h['movie_title']; ?></p>
+                        <span class="watched-date">Watched: <?php echo date('d M Y', strtotime($row_h['watched_at'])); ?></span>
+                    </div>
+                    <?php
+                }
+            } else {
+                echo "<p>You haven't seen any movie</p>";
+            }
+        } else {
+            echo "<p>Please! Sign in</p>";
+        }
+        ?>
     </div>
 </section>
 
