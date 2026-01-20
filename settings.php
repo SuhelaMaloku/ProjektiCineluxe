@@ -6,7 +6,6 @@ if (!isset($_SESSION['user_email'])) {
     header("Location: loginform.php");
     exit();
 }
-
 $email = $_SESSION['user_email'];
 $res = $conn->query("SELECT * FROM users WHERE email = '$email'");
 $user_data = $res->fetch_assoc();
@@ -16,6 +15,22 @@ if (!empty($user_data['image'])) {
     $foto_aktuale = "uploads/" . $user_data['image'];
 }
 ?>
+<?php if(isset($_GET['status'])): ?>
+    <div id="status-alert" style="padding: 15px; margin-bottom: 20px; border-radius: 8px; text-align: center; font-weight: 500; 
+        <?php 
+            if($_GET['status'] == 'success' || $_GET['status'] == 'pw_success') {
+                echo 'background-color: #d4edda; color: #155724; border: 1px solid #c3e6cb;'; 
+            } else {
+                echo 'background-color: #f8d7da; color: #721c24; border: 1px solid #f5c6cb;'; 
+            }
+        ?>">
+        
+        <?php 
+            if($_GET['status'] == 'success') echo "Profile updated successfully!";
+            if($_GET['status'] == 'pw_success') echo "Password changed successfully!";
+            if($_GET['status'] == 'error') echo "An error occurred. Please try again.";
+        ?>
+    </div>
 
     <script>
         setTimeout(function() {
@@ -23,7 +38,7 @@ if (!empty($user_data['image'])) {
             if(alert) alert.style.display = 'none';
         }, 3000);
     </script>
-
+<?php endif; ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
