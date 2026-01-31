@@ -1,4 +1,30 @@
-<?php include 'header.php';?>
+<?php
+if (session_status() === PHP_SESSION_NONE) { session_start(); }
+include 'db_connection.php';
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['comment'])) {
+    if (isset($_SESSION['user_email'])) {
+        $username = mysqli_real_escape_string($conn, $_SESSION['user_name']);
+        $comment = mysqli_real_escape_string($conn, $_POST['comment']);
+        
+        $email = $_SESSION['user_email'];
+        $user_query = $conn->query("SELECT image FROM users WHERE email = '$email'");
+        $user_data = $user_query->fetch_assoc();
+        
+        $avatar = (!empty($user_data['image'])) ? 'uploads/'.$user_data['image'] : 'profil.jpg';
+
+        if ($comment !== '') {
+            $sql = "INSERT INTO reviews (username, comment, avatar) VALUES ('$username', '$comment', '$avatar')";
+            $conn->query($sql);
+        }
+        header('Location: about.php');
+        exit;
+    } else {
+        header('Location: loginform.php');
+        exit;
+    }
+}
+?>
+<?php include 'header.php'; ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,9 +37,6 @@
 </head>
 <body>
 
-
-
-<!-- ABOUT -->
 <section class="about">
     <h2>About CineLuxe</h2>
     <p>
@@ -22,80 +45,39 @@
     </p>
     <p class="signature">— The CineLuxe Team 🎬</p>
 </section>
-
-<!-- REVIEWS -->
 <section class="about">
     <h3 class="review-title">Leave a Review</h3>
 
-    <!-- REVIEW BOX -->
     <div class="review-box">
-        <div class="review-header">
-            <img src="profil default instagram.jpg" alt="User Profile"> <!-- profile picture default -->
-            <input type="text" id="username" placeholder="Your name">
-        </div>
-
-        <textarea id="comment" placeholder="Write your feedback..."></textarea>
-        <button onclick="addReview()">Submit</button>
+        <form method="POST" action="about.php">
+            <textarea name="comment" placeholder="Write your feedback..." required></textarea>
+            <button type="submit">Submit</button>
+        </form>
     </div>
+<div class="ratings" id="reviewsList">
+    <?php
+    $get_reviews = $conn->query("SELECT * FROM reviews ORDER BY created_at DESC");
 
-    <!-- REVIEWS LIST -->
-    <div class="ratings" id="reviewsList">
-        <!-- Komente ekzistuese -->
-        <div class="review-card">
-            <img src="Rapunzel icon - Tangled (2010).jpg" alt="Alice">
-            <div>
-                <h4>Alice</h4>
-                <p>Highly recommend to all movie lovers!</p>
+    if ($get_reviews->num_rows > 0) {
+        while($row = $get_reviews->fetch_assoc()) {
+            ?>
+            <div class="review-card">
+                <img src="<?php echo $row['avatar']; ?>" alt="User Avatar">
+                <div>
+                    <h4><?php echo htmlspecialchars($row['username']); ?></h4>
+                    <p><?php echo htmlspecialchars($row['comment']); ?></p>
+                    <small style="color: #888; font-size: 11px;">
+                        <?php echo date('d M Y, H:i', strtotime($row['created_at'])); ?>
+                    </small>
+                </div>
             </div>
-        </div>
-        <div class="review-card">
-            <img src="download (64).jpg" alt="Bob">
-            <div>
-                <h4>Bob</h4>
-                <p>Great movies, very easy to navigate!</p>
-            </div>
-        </div>
-        <div class="review-card">
-            <img src="download (64).jpg" alt="Alice">
-            <div>
-                <h4>Emma</h4>
-                <p>Perfect place to discover new favorites.</p>
-            </div>
-        </div>
-        <div class="review-card">
-            <img src="Cat_Kitty pics.jpg" alt="Alice">
-            <div>
-                <h4>Chloe</h4>
-                <p>Five stars for CineLuxe! Keep it up!</p>
-            </div>
-        </div>
-        <div class="review-card">
-            <img src="download (67).jpg" alt="Alice">
-            <div>
-                <h4>Grace</h4>
-                <p>Can’t wait for more movies to be added!</p>
-            </div>
-        </div>
-        <div class="review-card">
-            <img src="download (66).jpg" alt="Alice">
-            <div>
-                <h4>Olivia</h4>
-                <p>Easy to use, looks amazing, love it.</p>
-            </div>
-        </div>
-        <div class="review-card">
-            <img src="download (65).jpg" alt="Alice">
-            <div>
-                <h4>Liam</h4>
-                <p>I can spend hours here—so many great films!</p>
-            </div>
-        </div>
-    </div>
-    <!-- Load More Button -->
-<div class="load-more-container">
-    <button class="load-more-btn">Load More</button>
+            <?php
+        }
+    } else {
+        echo "<p>No reviews yet. Be the first to write one!</p>";
+    }
+    ?>
 </div>
-
 </section>
 <footer>
     <div class="footer-container">
@@ -127,12 +109,6 @@
         <p>© 1990-2025 CineLuxe.com, Inc. All rights reserved.</p>
     </div>
 </footer>
-
-
-
-
-
-<script src="main.js"></script>
-<script src="search.js"></script>
+<script src="search.js?v=<?php echo time(); ?>"></script>
 </body>
 </html>
