@@ -103,6 +103,8 @@ if (!empty($user_data['image'])) {
             </div>
         </div>
         <button type="submit" name="save_profile" class="btn save-btn" style="margin-top: 10px;">Save Changes</button>
+        <button type="button" onclick="confirmDelete()" 
+        style="margin-top: 20px; background: #dc3545; color: white; border: none; padding: 10px 25px; border-radius: 8px; cursor: pointer;"> Delete Account</button>
     </form>
 </section>
 <section id="password" class="content-section">
@@ -221,6 +223,13 @@ function displayImage(e) {
         }
         
         reader.readAsDataURL(e.files[0]);
+    }
+}
+</script>
+<script>
+function confirmDelete() {
+    if (confirm("Are you sure you want to delete your account? This action cannot be undone.")) {
+        window.location.href = "delete_account.php";
     }
 }
 </script>
