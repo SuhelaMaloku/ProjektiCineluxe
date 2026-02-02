@@ -2,6 +2,7 @@
 session_start();
 include 'db_connection.php';
 $error = "";
+
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $email = mysqli_real_escape_string($conn, $_POST['loginEmail']);
     $password = $_POST['loginPassword'];
@@ -10,12 +11,18 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     if ($result->num_rows > 0) {
         $user = $result->fetch_assoc();
+        
         if (password_verify($password, $user['password'])) {
             $_SESSION['loggedin'] = true;
             $_SESSION['user_name'] = $user['name'];
-            $_SESSION['user_email'] = $user['email'];
+            $_SESSION['user_email'] = $user['email']; 
+            $_SESSION['role'] = $user['role']; 
 
-            header("Location: Cineluxe.php");
+            if ($user['role'] == 'admin') {
+                header("Location: admin_dashboard.php");
+            } else {
+                header("Location: Cineluxe.php");
+            }
             exit;
         } else {
             $error = "Invalid email or password.";
