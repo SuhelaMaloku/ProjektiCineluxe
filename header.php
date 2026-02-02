@@ -58,7 +58,13 @@ if(isset($_SESSION['user_email'])){
     </div>
     <div class="user-dropdown">
         <?php if(isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true): ?>
-            <a href="<?php echo ($_SESSION['role'] === 'admin') ? 'admin_dashboard.php' : 'settings.php'; ?>" class="user-toggle">
+        <?php
+        $path = 'settings.php';
+           if(isset($_SESSION['role']) && $_SESSION['role'] === 'admin') {
+            $path = 'admin_dashboard.php';
+           }
+        ?>
+<a href="<?php echo $path; ?>" class="user-toggle">
                 <div class="user-avatar" style="width: 35px; height: 35px; border-radius: 50%; overflow: hidden;">
                     <img src="<?php echo $user_image; ?>" alt="User" style="width: 100%; height: 100%; object-fit: cover;">
                 </div>
