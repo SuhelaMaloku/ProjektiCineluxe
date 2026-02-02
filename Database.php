@@ -3,7 +3,7 @@ class Database {
     private $host = "localhost";
     private $user = "root";
     private $pass = "";
-    private $dbname = "cineluxe_db";
+    private $dbname = "cineluxe_db"; 
     public $conn;
 
     public function __construct() {
