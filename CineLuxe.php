@@ -1,6 +1,11 @@
 <?php
 session_start();
+
 ?>
+<?php if ($_SESSION['role'] == 'admin'): ?>
+    <button style="background: red;">Delete this Movie(Only for Admin)</button>
+<?php endif; ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
