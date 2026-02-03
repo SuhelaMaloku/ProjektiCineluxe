@@ -1,5 +1,5 @@
 <?php
 session_start();
 session_destroy();
-header("Location: Cineluxe.php");
+header("Location: loginform.php");
 exit;
