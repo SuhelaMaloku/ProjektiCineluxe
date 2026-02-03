@@ -54,35 +54,53 @@ $genres = ['Animation', 'Adventure', 'Fantasy', 'Comedy', 'Action'];
                 if($result && $result->num_rows > 0):
                     while($row = $result->fetch_assoc()): 
                 ?>
-                    <div class="box">
+                    <div class="box" 
+                         data-video="https://www.youtube.com<?php echo $row['trailer_id']; ?>" 
+                         data-title="<?php echo htmlspecialchars($row['title']); ?>" 
+                         data-desc="Genre: <?php echo htmlspecialchars($row['genre']); ?>"
+                         style="cursor: pointer;">
+                        
                         <div class="box-img">
                             <img src="<?php echo htmlspecialchars($row['image_url']); ?>" alt="Poster">
                         </div>
                         <div class="box-text">
                             <div style="display:flex; justify-content:space-between; align-items: center;">
                                 <h3><?php echo htmlspecialchars($row['title']); ?></h3>
-                                <a href="handle_action.php?action=watchlist&title=<?php echo urlencode($row['title']); ?>&image=<?php echo urlencode($row['image_url']); ?>">
+                                <a href="handle_action.php?action=watchlist&title=<?php echo urlencode($row['title']); ?>&image=<?php echo urlencode($row['image_url']); ?>" onclick="event.stopPropagation();">
                                     <i class='bx bxs-bookmark-plus' style="color:#e50914; font-size:20px;"></i>
                                 </a>
                             </div>
                             <span><?php echo htmlspecialchars($row['genre']); ?></span>
-                            
                             <p class="added-by" style="font-size: 0.7rem; color: #777; margin-top: 4px;">
                                 Added by: <?php echo htmlspecialchars($row['added_by']); ?>
                             </p>
                         </div>
                     </div>
                 <?php 
-                    endwhile; 
+                    endwhile;
                 else:
-                    echo "<p style='color: #555; font-size: 0.8rem; font-style: italic;'>Coming soon: $genre movies will be added shortly...</p>";
-                endif;
+                    echo "<p style='color: #555; font-size: 0.8rem; font-style: italic;'>Soon it will be added $genre...</p>";
+                endif; 
                 ?>
             </div>
         </div>
-    <?php endforeach; ?>
+    <?php endforeach;?>
 </section>
 
+<div class="trailer-modal" id="trailer-modal">
+    <div class="trailer-content">
+        <span class="close-btn" id="close-trailer">&times;</span>
+
+        <div class="video-wrapper">
+            <iframe id="trailer-video" width="100%" height="500" frameborder="0" allowfullscreen></iframe>
+        </div>
+
+        <div class="trailer-info">
+            <h2 id="trailer-title"></h2>
+            <p id="trailer-desc"></p>
+        </div>
+    </div>
+</div>
 
 
 <footer>
@@ -109,6 +127,6 @@ $genres = ['Animation', 'Adventure', 'Fantasy', 'Comedy', 'Action'];
         <p>© 1990-2025 CineLuxe.com, Inc. All rights reserved.</p>
     </div>
 </footer>
-
+<script src="trailers.js"></script>
 </body>
 </html>
